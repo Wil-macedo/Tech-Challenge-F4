@@ -1,6 +1,7 @@
 from tensorflow.keras.models import load_model # type: ignore
 from processData import modelFiles, getScaler
 from processData import *
+import mlflow
 import os
 
 # Modelo de dado para predição.
@@ -70,12 +71,22 @@ xData = [
 def modelPredict(xData:list) -> int:
     
     if len(xData) == 60:
-        model = load_model(os.path.join(modelFiles, "my_model.keras"))
-        model.summary()
+        
+        logged_model = 'runs:/03e220f97a8c4e80b627f21d33345e71/model'
+
+        # Load model as a PyFuncModel.
+        loaded_model = mlflow.pyfunc.load_model(logged_model)
+
+        # Predict on a Pandas DataFrame.
+
+        # model = load_model(os.path.join(modelFiles, "my_model.keras"))
+        # model.summary()
         xData = np.array(xData).reshape(-1, 1)
         xDataScaled = getScaler().transform(xData)
         xData = np.array(xDataScaled).reshape(1, 60, 1)
-        prediction = model.predict(xData)
+
+        prediction = loaded_model.predict(xData)
+        # prediction = model.predict(xData)
         prediction = getScaler().inverse_transform(prediction)[0][0]
 
         return int(round(prediction, 2))

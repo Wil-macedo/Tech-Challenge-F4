@@ -1,0 +1,10 @@
+digest: 43f1da18
+name: dataset
+profile: '{"features_shape": [2970, 60, 1], "features_size": 178200, "features_nbytes":
+  1425600, "targets_shape": [2970], "targets_size": 2970, "targets_nbytes": 23760}'
+schema: '{"mlflow_tensorspec": {"features": "[{\"type\": \"tensor\", \"tensor-spec\":
+  {\"dtype\": \"float64\", \"shape\": [-1, 60, 1]}}]", "targets": "[{\"type\": \"tensor\",
+  \"tensor-spec\": {\"dtype\": \"float64\", \"shape\": [-1]}}]"}}'
+source: '{"tags": {"mlflow.user": "Willian", "mlflow.source.name": "c:\\Users\\wiwil\\Desktop\\PROGRAMACAO\\POSTECH\\FASE_04\\Tech-Challenge-F4\\modelTrain.py",
+  "mlflow.source.type": "LOCAL", "mlflow.source.git.commit": "43ac2b00b99c062bc970b9ca3c6d0bd26d44b3a1"}}'
+source_type: code

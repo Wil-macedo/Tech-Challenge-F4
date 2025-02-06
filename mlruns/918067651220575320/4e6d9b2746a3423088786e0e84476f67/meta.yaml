@@ -1,0 +1,16 @@
+artifact_uri: file:///C:/Users/wiwil/Desktop/PROGRAMACAO/POSTECH/FASE_04/Tech-Challenge-F4/mlruns/918067651220575320/4e6d9b2746a3423088786e0e84476f67/artifacts
+deleted_time: 1738804321006
+end_time: 1738803712363
+entry_point_name: ''
+experiment_id: '918067651220575320'
+lifecycle_stage: deleted
+run_id: 4e6d9b2746a3423088786e0e84476f67
+run_name: upset-hog-328
+run_uuid: 4e6d9b2746a3423088786e0e84476f67
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738803712067
+status: 4
+tags: []
+user_id: Willian

@@ -1,0 +1,16 @@
+artifact_uri: file:///C:/Users/wiwil/Desktop/PROGRAMACAO/POSTECH/FASE_04/Tech-Challenge-F4/mlruns/918067651220575320/b74aa1fc35a54ac2a52a4ac42b056c92/artifacts
+deleted_time: 1738804320995
+end_time: null
+entry_point_name: ''
+experiment_id: '918067651220575320'
+lifecycle_stage: deleted
+run_id: b74aa1fc35a54ac2a52a4ac42b056c92
+run_name: spiffy-ray-518
+run_uuid: b74aa1fc35a54ac2a52a4ac42b056c92
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1738804106997
+status: 1
+tags: []
+user_id: Willian

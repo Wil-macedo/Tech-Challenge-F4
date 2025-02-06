@@ -1,10 +1,26 @@
-from flask import Flask, request, jsonify
+from flask import Flask, redirect, request, jsonify
 from modelPredict import *
 import pandas as pd
+import subprocess
+import threading
 import psutil 
 import time
 
+
 app = Flask(__name__)
+
+
+# Função para iniciar o MLflow UI
+def run_mlflow_ui():
+    # Comando para rodar o MLflow UI na porta 8020
+    subprocess.run(["mlflow", "ui", "--port", "8020"])
+
+
+@app.route('/mlflow')
+def mlflow_redirect():
+    # Redireciona para o MLflow UI
+    return redirect("http://localhost:8020")
+
 
 @app.route("/predict", methods=["GET", "POST"])
 def predict():
@@ -73,4 +89,8 @@ def monitor():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port="8010")
+    # Inicia o MLflow UI em uma thread separada
+    mlflow_thread = threading.Thread(target=run_mlflow_ui)
+    mlflow_thread.start()
+
+    app.run(host="0.0.0.0", port="8000")
