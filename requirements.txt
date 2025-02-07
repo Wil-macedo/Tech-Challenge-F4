@@ -1,13 +1,14 @@
-yfinance== 0.2.52
-numpy==1.23.5
-pandas==2.0.3
-matplotlib==3.7.2
-psutil==5.9.4
-joblib==1.4.2
-flask==2.2.2
-tensorflow==2.16.1
-uvicorn== 0.34.0
-scikit-learn==1.5.1
-fastapi== 0.115.8
-Werkzeug==2.2.2
-mlflow==2.20.1
+numpy
+pandas
+matplotlib
+psutil
+joblib
+flask
+tensorflow
+uvicorn
+scikit-learn
+fastapi
+Werkzeug
+mlflow
+flasgger
+yfinance

@@ -1,0 +1,92 @@
+openapi: 3.0.1
+info:
+  title: API PARA PREVISÃO DE PREÇOS
+  description: API para previsão de preços utilizando um modelo de Deep Learning baseado em LSTM.
+  version: 1.0.0
+paths:
+  /mlflow:
+    get:
+      summary: Redireciona para o MLflow UI
+      description: É possível verificar todos os modelos gerados e as métricas de treinamento.
+      tags:
+      - ""
+      responses:
+        "200":
+          description: Página HTML do MLflow UI.
+                
+  /predict:
+    post:
+      summary: Faz a previsão do próximo preço
+      description: Recebe um array com os últimos 60 preços de fechamento e retorna a previsão do próximo dia
+      tags:
+      - ""
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                predict:
+                  minItems: 60
+                  items:
+                    type: number
+                  description: Lista de 60 preços de fechamento
+      responses:
+        "200":
+          description: Retorna o preço previsto, tempo de resposta e uso de recursos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  predicted_price:
+                    type: number
+                  response_time_sec:
+                    type: number
+                  cpu_usage_percent:
+                    type: number
+                  memory_usage_percent:
+                    type: number
+        "400":
+          description: Erro caso a entrada não tenha 60 valores
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+  /monitor:
+    get:
+      summary: Retorna o status do sistema
+      description: Inclui uso de CPU, memória e tempo médio de resposta baseado nos logs
+      tags:
+      - ""
+      responses:
+        "200":
+          description: Dados de monitoramento do sistema
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  CURRENT CPU:
+                    type: number
+                    description: Uso atual da CPU em %
+                  MEMORY %:
+                    type: number
+                    description: Uso de memória em %
+                  RESPONSES:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        timestamp:
+                          type: string
+                        response_time:
+                          type: number
+                        cpu_usage:
+                          type: number
+                        memory_usage:
+                          type: number

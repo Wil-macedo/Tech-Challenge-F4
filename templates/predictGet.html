@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerta de Previsão</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #9b9492, #feb47b);
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+        .alert {
+            background-color: #ffcc00;
+            color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="alert">
+            ⚠️ Para previsão do modelo, execute uma requisição POST. Consulte a documentação abaixo !
+        </div>
+        <br>
+        <a href="#" class="btn" onclick="consulteDocumentacao()">Consulte documentação</a>
+    </div>
+    
+    <script>
+        function consulteDocumentacao() {
+            window.location.href = '/docs';
+        }
+    </script>
+</body>
+</html>

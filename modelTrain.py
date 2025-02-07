@@ -22,10 +22,6 @@ x = x.reshape(x.shape[0], x.shape[1], 1)
 xTrain, xTest, yTrain, yTest = train_test_split(x, y, test_size=0.2, shuffle=False)
 
 
-# parameters = {
-#     "epochs":10, 
-#     "batch_size":32
-# }
 with mlflow.start_run():
     
     model = Sequential([
