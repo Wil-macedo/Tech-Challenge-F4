@@ -12,3 +12,4 @@ Werkzeug
 mlflow
 flasgger
 yfinance
+gunicorn
