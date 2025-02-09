@@ -115,4 +115,4 @@ if __name__ == "__main__":
     mlflow_thread = threading.Thread(target=run_mlflow_ui)
     mlflow_thread.start()
 
-    app.run(host="0.0.0.0", port="8000")
+    app.run(host="0.0.0.0", port="8010")
