@@ -13,11 +13,13 @@ docker run -p 8010:8000 tech_challenge_f4
 gunicorn -c gunicorn.conf.py app:app
 
 
-# PARA RODAS O PROJETO NO WINDOWS UTILIZANDO WSL.
+# PARA RODAS O PROJETO NO WINDOWS UTILIZANDO WSL & Deploy EC2.
 
 sudo apt update && sudo apt upgrade -y
 sudo apt install python3 python3-venv python3-pip -y
 
 python3 -m venv ~/venv
 source ~/venv/bin/activate
-python3 -m pip install xyz
+sudo apt install gunicorn
+pip install --no-cache-dir -r requirements.txt
+

@@ -1,4 +1,5 @@
 from flask import Flask, redirect, request, jsonify, render_template, make_response
+from flask_compress import Compress
 from flasgger import Swagger
 from modelPredict import *
 import pandas as pd
@@ -8,6 +9,7 @@ import psutil
 import time
 
 app = Flask(__name__)
+Compress(app)  # Habilita a compressão
 laodModel()  # Garante que modelo está carregado, para rapida resposta.
 
 try:
@@ -23,8 +25,10 @@ except Exception as ex:
     
 # Função para iniciar o MLflow UI
 def run_mlflow_ui():
-    subprocess.run(["mlflow", "ui", "--port", "8020"])
-
+    try:
+        subprocess.run(["mlflow", "ui", "--port", "8020"])
+    except Exception as ex:
+        predict(f"FALHA MLFLOW: {ex}")
 
 
 # Redireciona para o MLflow UI

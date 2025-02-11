@@ -13,3 +13,4 @@ mlflow
 flasgger
 yfinance
 gunicorn
+flask_compress
