@@ -12,6 +12,8 @@ docker run -p 8010:8000 tech_challenge_f4
 
 gunicorn -c gunicorn.conf.py app:app
 
+gunicorn --workers 3 --bind 0.0.0.0:8010 app:app
+
 
 # PARA RODAS O PROJETO NO WINDOWS UTILIZANDO WSL & Deploy EC2.
 

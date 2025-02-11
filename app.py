@@ -115,6 +115,9 @@ def monitor():
 
 if __name__ == "__main__":
     
+    app.config['ENV'] = 'production'
+    app.config['DEBUG'] = False
+
     # Inicia o MLflow UI em uma thread separada
     mlflow_thread = threading.Thread(target=run_mlflow_ui)
     mlflow_thread.start()
