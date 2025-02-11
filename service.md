@@ -24,3 +24,7 @@ sudo systemctl restart flask_app       # Reiniciar o serviço
 
 # VERIFICAR O STATUS.
 sudo systemctl status flask_app
+
+# RESET SERVICE:
+sudo systemctl restart flask_app    # Reinicie o serviço que você criou anteriormente
+
