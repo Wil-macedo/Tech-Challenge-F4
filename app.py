@@ -63,27 +63,25 @@ def predict():
             
             # Medir tempo de resposta e uso de recursos
             response_time = round(time.time() - start_time, 4)  # Tempo em segundos
-            cpu_usage = psutil.cpu_percent()  # Porcentagem de uso da CPU
+
+
+
             memory_usage = psutil.virtual_memory().percent  # Uso de memória em %
+            result = jsonify({
+                "predicted_price": prediction,
+                "response_time_sec": response_time,
+                "memory_usage_percent": memory_usage,
+            })
 
             # Log de previsões
             log_data = {
                 "timestamp": pd.Timestamp.now(),
                 "response_time": response_time,
-                "cpu_usage": cpu_usage,
                 "memory_usage": memory_usage,
             }
-
             # Salvar logs em CSV
             log_df = pd.DataFrame([log_data])
             log_df.to_csv("log_predictions.csv", mode="a", header=not pd.io.common.file_exists("log_predictions.csv"), index=False)
-
-            result = jsonify({
-                "predicted_price": prediction,
-                "response_time_sec": response_time,
-                "cpu_usage_percent": cpu_usage,
-                "memory_usage_percent": memory_usage,
-            })
 
             return result
 
